@@ -32,3 +32,15 @@ calculator_add:
   requirements:
     param1: '\d+'
     param2: '\d+'
+
+calculator_subtract:
+    resource: "@AppBundle/Controller/CalculatorController.php"
+    type: annotation
+
+calculator_multiply:
+  path: /multiply/{param1}/
+  defaults: { _controller: AppBundle:Calculator:multiply }
+  methods: [GET]
+  requirements:
+    param1: '\d+'
+    param2: '\d+'
