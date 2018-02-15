@@ -44,3 +44,11 @@ calculator_multiply:
   requirements:
     param1: '\d+'
     param2: '\d+'
+
+calculator_divide:
+  path: /divide/
+  defaults: { _controller: AppBundle:Calculator:divide }
+  methods: [POST]
+  requirements:
+    param1: '\d+'
+    param2: '\d+'
