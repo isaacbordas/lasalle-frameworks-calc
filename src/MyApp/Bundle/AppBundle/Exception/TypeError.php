@@ -1,11 +1,10 @@
 <?php
 
-namespace MyApp\Component\Exception;
+namespace MyApp\Bundle\AppBundle\Exception;
 
+use \Error;
 
-use Throwable;
-
-class MissingParamException extends \Exception
+class TypeError extends Error
 {
     /**
      * MissingParamException constructor.

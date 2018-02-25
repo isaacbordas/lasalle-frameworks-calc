@@ -1,6 +1,6 @@
 <?php
 
-namespace MyApp\Component\Validator;
+namespace MyApp\Bundle\AppBundle\Validator;
 
 class ValidatorCollection
 {
