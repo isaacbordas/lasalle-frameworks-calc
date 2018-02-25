@@ -2,9 +2,9 @@
 #    resource: "@AppBundle/Controller/"
 #    type:     annotation
 
-#homepage:
-#  path: /
-#  defaults: { _controller: AppBundle:Default:index }
+homepage:
+  path: /
+  defaults: { _controller: AppBundle:Default:index }
 #
 #constraint:
 #  path: /{param}/
@@ -25,30 +25,26 @@ request_post:
   defaults: { _controller: AppBundle:Default:requestPost }
   methods: [POST]
 
+calculator_index:
+  path: /calculator/
+  defaults: { _controller: AppBundle:Calculator:index }
+  methods: [GET]
+
 calculator_add:
-  path: /add/{param1}/{param2}/
+  path: /calculator/add/{param1}/{param2}/
   defaults: { _controller: AppBundle:Calculator:add }
   methods: [GET]
-  requirements:
-    param1: '\d+'
-    param2: '\d+'
 
 calculator_subtract:
     resource: "@AppBundle/Controller/CalculatorController.php"
     type: annotation
 
 calculator_multiply:
-  path: /multiply/{param1}/
+  path: /calculator/multiply/{param1}/
   defaults: { _controller: AppBundle:Calculator:multiply }
   methods: [GET]
-  requirements:
-    param1: '\d+'
-    param2: '\d+'
 
 calculator_divide:
-  path: /divide/
+  path: /calculator/divide/
   defaults: { _controller: AppBundle:Calculator:divide }
   methods: [POST]
-  requirements:
-    param1: '\d+'
-    param2: '\d+'
