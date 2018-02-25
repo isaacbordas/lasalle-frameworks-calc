@@ -15,8 +15,11 @@ class CalculatorController extends Controller
         return $this->render('calculator/index.html.twig');
     }
 
-    public function addAction($param1, $param2) : Response
+    public function addAction(Request $request) : Response
     {
+        $param1 = $request->attributes->get('param1');
+        $param2 = $request->attributes->get('param2');
+
         $calculator = new Calculator();
         $response = new Response((int)$calculator->add($param1, $param2));
 
@@ -26,17 +29,22 @@ class CalculatorController extends Controller
     /**
      * @Route("/calculator/subtract/{param1}/{param2}/", name="subtract")
      */
-    public function subtractAction($param1, $param2) : Response
+    public function subtractAction(Request $request) : Response
     {
+        $param1 = $request->attributes->get('param1');
+        $param2 = $request->attributes->get('param2');
+
         $calculator = new Calculator();
         $response = new Response((int)$calculator->subtract($param1, $param2));
 
         return $this->render('calculator/index.html.twig', array('result' => $response->getContent()), $response);
     }
 
-    public function multiplyAction($param1, Request $request) : Response
+    public function multiplyAction(Request $request) : Response
     {
+        $param1 = $request->attributes->get('param1');
         $param2 = $request->query->get('param2');
+
         $calculator = new Calculator();
         $response = new Response((int)$calculator->multiply($param1, $param2));
 
