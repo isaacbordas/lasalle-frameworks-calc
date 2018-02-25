@@ -20,10 +20,9 @@ class Calculator
         return $v1 * $v2;
     }
 
-    public function divide(float $v1, float $v2) : float
+    public function divide(int $v1, int $v2) : float
     {
-        $result = ($v1 / $v2);
-        return (float) $result;
+        return ($v1 / $v2);
     }
 
 }
