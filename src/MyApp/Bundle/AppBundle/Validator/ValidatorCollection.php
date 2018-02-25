@@ -25,6 +25,11 @@ class ValidatorCollection
 
     public function isNumericParamType($param1, $param2) : bool
     {
+
+        if(filter_var($param1, FILTER_VALIDATE_INT) && $param2 == '0'){
+            return true;
+        }
+
         if(!filter_var($param1, FILTER_VALIDATE_INT) || !filter_var($param2, FILTER_VALIDATE_INT)) {
             return false;
         }
