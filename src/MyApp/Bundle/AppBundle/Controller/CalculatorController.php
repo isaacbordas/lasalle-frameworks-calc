@@ -18,7 +18,7 @@ class CalculatorController extends Controller
     public function addAction($param1, $param2) : Response
     {
         $calculator = new Calculator();
-        $response = new Response((int)$calculator->add((int)$param1, (int)$param2));
+        $response = new Response((int)$calculator->add($param1, $param2));
 
         return $this->render('calculator/index.html.twig', array('result' => $response->getContent()), $response);
     }
@@ -38,7 +38,7 @@ class CalculatorController extends Controller
     {
         $param2 = $request->query->get('param2');
         $calculator = new Calculator();
-        $response = new Response((int)$calculator->multiply((int) $param1, (int)$param2));
+        $response = new Response((int)$calculator->multiply($param1, $param2));
 
         return $this->render('calculator/index.html.twig', array('result' => $response->getContent()), $response);
     }
@@ -49,7 +49,7 @@ class CalculatorController extends Controller
         $param2 = $request->query->get('param2');
 
         $calculator = new Calculator();
-        $result = $calculator->divide((float)$param1, (float)$param2);
+        $result = $calculator->divide($param1, $param2);
         $response = new Response((float)$result);
 
         return $this->render('calculator/index.html.twig', array('result' => $response->getContent()), $response);
